@@ -1,0 +1,58 @@
+:root {
+  // sizes
+  --border-width: 4px;
+  --cubes-amount: 9;
+
+  // colors
+  --main-color: hsl(0, 0%, 76%);
+  --highlight: white;
+  --shadow: #999;
+}
+
+.app {
+  background-color: var(--main-color);
+  padding: 16px;
+}
+
+.header {
+  background-color: #c0c0c0;
+  padding: 10px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.body {
+  margin-top: 16px;
+
+  display: grid;
+  grid-template-rows: repeat(var(--cubes-amount), 1fr);
+  grid-template-columns: repeat(var(--cubes-amount), 1fr);
+}
+
+.face {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 35px;
+  width: 52px;
+  height: 52px;
+}
+
+.style-pop-out {
+  border-width: var(--border-width);
+  border-style: solid;
+  border-right-color: var(--shadow);
+  border-bottom-color: var(--shadow);
+  border-left-color: var(--highlight);
+  border-top-color: var(--highlight);
+}
+
+.style-pop-in {
+  border-width: var(--border-width);
+  border-style: solid;
+  border-right-color: var(--highlight);
+  border-bottom-color: var(--highlight);
+  border-left-color: var(--shadow);
+  border-top-color: var(--shadow);
+}
