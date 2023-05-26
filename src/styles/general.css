@@ -1,0 +1,17 @@
+.style-pop-out {
+  border-width: var(--border-width);
+  border-style: solid;
+  border-right-color: var(--shadow);
+  border-bottom-color: var(--shadow);
+  border-left-color: var(--highlight);
+  border-top-color: var(--highlight);
+}
+
+.style-pop-in {
+  border-width: var(--border-width);
+  border-style: solid;
+  border-right-color: var(--highlight);
+  border-bottom-color: var(--highlight);
+  border-left-color: var(--shadow);
+  border-top-color: var(--shadow);
+}

@@ -1,8 +1,19 @@
-import React from "react";
-import "./App.scss";
+import React, { useState } from "react";
+import "./App.css";
 import NumberDisplay from "../NumberDispaly";
+import { generateCells } from "../../utils";
+import "../../styles/general.css"; // general css file
+import Button from "../Button";
 
 const App = () => {
+  const [cells, setCells] = useState(generateCells());
+
+  const renderCells = () => {
+    return cells.map((row, rowIndex) =>
+      row.map((cell, colIndex) => <Button />)
+    );
+  };
+
   return (
     <div className="app style-pop-out">
       <div className="header style-pop-in">
@@ -14,7 +25,7 @@ const App = () => {
         </div>
         <NumberDisplay value={50} />
       </div>
-      <div className="body style-pop-in">Body</div>
+      <div className="body style-pop-in">{renderCells()}</div>
     </div>
   );
 };
