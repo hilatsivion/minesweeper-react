@@ -1,6 +1,19 @@
 import { MAX_COLS, MAX_ROWS, NUMBER_OF_BOMBS } from "../constants";
 import { CellValue, CellState } from "../types/index.ts";
 
+export const neighbors = (rowIndex, colIndex) => {
+  return [
+    [rowIndex - 1, colIndex - 1], // Top Left
+    [rowIndex - 1, colIndex], // Top
+    [rowIndex - 1, colIndex + 1], // Top Right
+    [rowIndex, colIndex - 1], // Left
+    [rowIndex, colIndex + 1], // Right
+    [rowIndex + 1, colIndex - 1], // Bottom Left
+    [rowIndex + 1, colIndex], // Bottom
+    [rowIndex + 1, colIndex + 1], // Bottom Right
+  ];
+};
+
 export const generateCells = () => {
   let cells = [];
 
@@ -79,4 +92,30 @@ export const generateCells = () => {
   }
 
   return cells;
+};
+
+export const openMultipleCells = (cells, rowParam, colParam) => {
+  let newCells = cells.slice();
+  const arrNeighbors = neighbors(rowParam, colParam);
+
+  const currCell = cells[rowParam][colParam];
+  if (
+    currCell.state === CellState.visible ||
+    currCell.state == CellState.flagged
+  ) {
+    return cells;
+  }
+  // TODO: fix the function so it will show all empty cells that close to each other
+  for (let i = 0; i < arrNeighbors.length; i++) {
+    if (
+      neighbors[i]?.state === CellState.visible &&
+      neighbors[i].value !== CellValue.bomb
+    ) {
+      if ((neighbors[i].value = CellValue.none)) {
+        currCell.state = CellState.visible;
+        newCells = openMultipleCells(cells, neighbors[i][0], neighbors[i][1]);
+      } else
+        newCells[neighbors[i][0]][neighbors[i][1]].state = CellState.visible;
+    }
+  }
 };
