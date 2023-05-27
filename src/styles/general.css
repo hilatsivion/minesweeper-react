@@ -1,3 +1,14 @@
+:root {
+  /* sizes */
+  --border-width: 4px;
+  --cubes-amount: 9;
+
+  /* colors */
+  --main-color: hsl(0, 0%, 76%);
+  --highlight: white;
+  --shadow: #999;
+  --border-color: #7b7b7b;
+}
 .style-pop-out {
   border-width: var(--border-width);
   border-style: solid;

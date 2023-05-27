@@ -1,4 +1,42 @@
 .button {
   width: 30px;
   height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+.button:active {
+  border-right-color: var(--highlight);
+  border-bottom-color: var(--highlight);
+  border-left-color: var(--shadow);
+  border-top-color: var(--shadow);
+}
+.button.visible {
+  border-color: var(--border-color);
+  border-width: 1px;
+}
+.button.value-1 {
+  color: blue;
+}
+.button.value-2 {
+  color: green;
+}
+.button.value-3 {
+  color: red;
+}
+.button.value-4 {
+  color: purple;
+}
+.button.value-5 {
+  color: maroon;
+}
+.button.value-6 {
+  color: turquoise;
+}
+.button.value-7 {
+  color: black;
+}
+.button.value-8 {
+  color: grey;
 }

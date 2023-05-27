@@ -10,7 +10,15 @@ const App = () => {
 
   const renderCells = () => {
     return cells.map((row, rowIndex) =>
-      row.map((cell, colIndex) => <Button />)
+      row.map((cell, colIndex) => (
+        <Button
+          key={`${rowIndex}-${colIndex}`}
+          state={cell.state}
+          value={cell.value}
+          row={rowIndex}
+          col={colIndex}
+        />
+      ))
     );
   };
 
