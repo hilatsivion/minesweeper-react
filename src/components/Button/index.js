@@ -3,7 +3,7 @@ import "./Button.css";
 import "../../styles/general.css"; // general css file
 import { CellState, CellValue } from "../../types/index.ts";
 
-const button = ({ row, col, value, state }) => {
+const button = ({ row, col, value, state, onClick, onContext }) => {
   const renderContent = () => {
     if (state === CellState.visible) {
       if (value === CellValue.bomb) {
@@ -30,6 +30,8 @@ const button = ({ row, col, value, state }) => {
       className={`button style-pop-out ${
         state === CellState.visible ? "visible" : ""
       } value-${value}`}
+      onClick={() => onClick(row, col)}
+      onContextMenu={(event) => onContext(event, row, col)}
     >
       {renderContent()}
     </div>

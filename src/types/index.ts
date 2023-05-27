@@ -16,3 +16,10 @@ export enum CellState {
   visible,
   flagged,
 }
+
+export enum Face {
+  smile = "😃",
+  stress = "😮",
+  lost = "😵",
+  won = "😎",
+}
